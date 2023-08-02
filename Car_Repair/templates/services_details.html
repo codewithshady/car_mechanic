@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+
+<!-- Page Title -->
+    <section class="page-title-sectition" style="background-image:url({% static 'assets/images/background/bg-15.jpg' %})">
+        <div class="auto-container">
+
+            <h2 class="page-title">{{obj.title}}</h2>
+
+            <ul class="page-breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>{{obj.title}}</li>
+            </ul>
+        </div>
+    </section>
+
+    <!--Sidebar Page Container-->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row">
+
+                <!--Content Side-->
+                <div class="content-side col-lg-7 col-md-6 order-lg-2">
+                    <div class="services-single">
+                        <div class="inner-box">
+                            <div class="big-image">
+                                <img src="/{{details.image1}}" alt="" />
+                            </div>
+                            <h2>{{obj.title}}</h2>
+                            <div class="text">
+                                <p>{{details.description2 | safe }}</p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-side col-lg-5 col-md-6">
+                    <aside class="sidebar">
+                        <div class="sidebar-widget">
+                            <ul class="service-details-1-cat">
+                                 {% for x in service %}
+                                <li><a href="{% url 'services_details' x.id %}">{{x.title}} <i class="far fa-long-arrow-right"></i></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+
+                        <div class="service-details-1-contact-widget">
+                            <div class="sidebar-title style-two">
+                                <h2 class="service__details_getin">Get In Touch</h2>
+                            </div>
+                            <div class="details__inner__box">
+                                <ul>
+                                    <li><span class="icon fas fa-phone"></span>1800 456 7890</li>
+                                    <li><span class="icon fas fa-paper-plane"></span>contact@gearup.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </aside>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

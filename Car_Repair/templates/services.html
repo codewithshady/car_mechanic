@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+ <!-- Page Title -->
+    <section class="page-title-sectition" style="background-image:url({% static 'assets/images/background/bg-15.jpg' %})">
+        <div class="auto-container">
+            <h2 class="page-title">Services One</h2>
+            <ul class="page-breadcrumb">
+                <li><a href="index.html">home</a></li>
+                <li>Services One</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="services-2-section s-two">
+        <div class="auto-container">
+            <div class="sec-title-area">
+                <div class="sub-title">our services</div>
+                <h2 class="sec-title mb_10">Services That We Offer</h2>
+                <div class="title-desc mb_55">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution.</div>
+            </div>
+            <div class="row">
+
+                {% for x in service %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="services-2-block">
+                        <div class="services-2-image">
+                            <img src="/{{x.image}}" alt="">
+                            <div class="services-2-overlay">
+                                <a href="{% url 'services_details' x.id %}" class="services-2-read-more">view details</a>
+                            </div>
+
+                        </div>
+                        <h2 class="services-2-title">{{x.title}}</h2>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<section>
+    <section class="page-title-sectition" style="background-image:url({% static 'assets/images/background/bg-15.jpg' %})">
+        <div class="auto-container">
+            <h2 class="page-title">Career</h2>
+            <ul class="page-breadcrumb">
+                <li><a href="index.html">home</a></li>
+                <li>Career</li>
+            </ul>
+        </div>
+    </section>
+
+</section>
+
+ <section class="whychooseus-5-section">
+        <div class="auto-container">
+            <div class="row">
+                <div class="col-xl-5">
+                    <div class="whychooseus-5-image">
+                        <img src="{% static 'assets/images/resource/feature-image-1.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-xl-7" >
+                    <div class="sec-title-area mb_50">
+						<div class="sub-title">Our Career</div>
+						<h2 class="sec-title">Drop your resume in mention below</h2>
+					</div>
+                    <form method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="btn btn-primary" style="margin-bottom:50px;">Submit</button>
+                </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
