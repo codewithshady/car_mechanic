@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<!-- Page Title -->
+    <section class="page-title-sectition" style="background-image:url({% static 'assets/images/background/bg-15.jpg' %})">
+        <div class="auto-container">
+            <h2 class="page-title">Gallery</h2>
+            <ul class="page-breadcrumb">
+                <li><a href="index.html">home</a></li>
+                <li>Gallery</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="projects-2-section">
+		<div class="auto-container">
+			<div class="sec-title-area text-center">
+				<div class="sub-title s-two">latest work</div>
+				<h2 class="sec-title mb_10">Our Projects</h2>
+                <div class="title-desc mb_60">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </div>
+			</div>
+			<div class="row">
+              {% for g in gallery %}
+				<div class="col-lg-4 col-md-6">
+					<div class="projects-2-block">
+						<div class="projects-2-image">
+							<img src="/{{g.gallery}}" alt="">
+							<div class="projects-2-overlay">
+                                <div class="link-wrap">
+                                    <a href="/{{g.gallery}}" class="projects-2-icon" data-fancybox="project-1"><img src="{% static 'assets/images/icons/icon-expand.png' %}" alt=""></a>
+
+                                </div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+                {% endfor %}
+
+
+
+
+
+
+
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
